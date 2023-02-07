@@ -16,7 +16,7 @@ function mindGame(positive_number){
 }
 const number1 = 33;
 const mindGameResult = mindGame(number1);
-// console.log(mindGameResult);
+console.log(mindGameResult);
 
 
 // 2. Second Problem:
@@ -25,17 +25,22 @@ function evenOdd(string){
     /* 
     This function take a string as input. Then it check how many charaters in that string. If the character length is even, then it return even. and if the character length is odd, then it return odd.
     */
-       if(string.length % 2 === 0){
-        return 'even';
-       }
-       else{
-       return 'odd';
-       }
+      if(typeof string === 'string'){
+        if(string.length % 2 === 0){
+            return 'even';
+           }
+           else{
+           return 'odd';
+           }
+      }
+      else{
+        return 'Please enter only string';
+      }      
 }
 
 const string1 = 'Batch7';
 const evenOddResult = evenOdd(string1);
-// console.log(evenOddResult);
+console.log(evenOddResult);
 
 
 // 3. Third Problem:
@@ -44,17 +49,22 @@ function isLGSeven(number){
     /* 
     This function take a number as input. Firstly, this input number substract by 7. If the result is less than 7, then return this result. and if the result is greater than or equal 7, the input number is multiply by 2 and return the result. 
     */
-   const firstSubstractResult = number - 7;
-   if ( firstSubstractResult < 7){
-    return firstSubstractResult;
-   }
-   else{
-    return number * 2;
-   }
+    if(typeof number === 'number'){
+        const firstSubstractResult = number - 7;
+        if ( firstSubstractResult < 7){
+         return firstSubstractResult;
+        }
+        else{
+         return number * 2;
+        }
+    }
+    else{
+        return 'Please enter only number';
+    }  
 }
 const number2 = 15;
 const isLGSevenResult = isLGSeven(number2);
-// console.log(isLGSevenResult);
+console.log(isLGSevenResult);
 
 // 4. Fourth Problem:
 
@@ -62,18 +72,23 @@ function findingBadData(array){
     /* 
     This function takes an number array as input. This array number can be positive or negative. If the any number is negative, it is called bad data. and the positive numbers called good Data. This function return how many bad data present in that array.
     */
-   let count = 0;
-   for(i = 0; i < array.length; i++){
-    const element = array[i];
-    if(element < 0){
+    if(Array.isArray(array) === true ){
+        let count = 0;
+        for(i = 0; i < array.length; i++){
+        const element = array[i];
+        if(element < 0){
         count = count + 1;
+        }
+      }
+     return count;
     }
-   }
-   return count;
+    else{
+        return 'Please enter an array';
+    } 
 }
-const array1 = [-4, -9, -5, -33, -55];
+const array1 = [ -4, -9, -5, -33, -55 ];
 const findingBadDataResult = findingBadData(array1);
-// console.log(findingBadDataResult);
+console.log(findingBadDataResult);
 
 
 // 5. Fifth Problem:
@@ -83,18 +98,24 @@ function gemsToDiamond(input1, input2, input3){
     This function take 3 inputs as parameter. With the first parameter, it multiplied by 21. With the second parameter, it multiplied by 32. and with the third parameter, it multiplied by 43. If the total is greater than
     */
 
-    const firstFriendGem = input1 * 21;
-    const secondFriendGem = input2 * 32;
-    const thirdFriendGem = input3 * 43;
+    if(typeof input1 === 'number' && typeof input2 === 'number' && typeof input3 === 'number'){
 
-    const totalGem = firstFriendGem + secondFriendGem + thirdFriendGem;
+        const firstFriendGem = input1 * 21;
+        const secondFriendGem = input2 * 32;
+        const thirdFriendGem = input3 * 43;
 
-    if( totalGem >= 1000*2){
-        return totalGem - 2000;
+        const totalGem = firstFriendGem + secondFriendGem + thirdFriendGem;
+
+        if( totalGem >= 1000*2){
+          return totalGem - 2000;
+        }
+        else{
+          return totalGem;
+        }
     }
     else{
-        return totalGem;
-    }
+        return 'Please enter only number';
+    }   
 }
 
 const gemsToDiamondResult = gemsToDiamond(100, 5, 1)
